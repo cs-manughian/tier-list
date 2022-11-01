@@ -1,5 +1,6 @@
 import React from 'react';
 import './TitleSelector.scss';
+import { GameTitle } from './TierList';
 
 // There are 64 Party Packs
 // Hardcoded for the sake of the test but ideally would be stored elsewhere
@@ -13,7 +14,10 @@ const TitleSelector: React.FC<TitleSelectorProps> = ({
 
 }) => {
     return (
-        <div className=''>
+        <div className='title-selector'>
+            {
+                PARTY_PACK_IMAGES.map((imgUrl, i) => <GameTitle name={`Game-${i}`} imgUrl={imgUrl} />)
+            }
         </div>
     )
 }

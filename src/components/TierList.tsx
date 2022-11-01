@@ -6,7 +6,7 @@ export type GameTitleProps = {
     imgUrl: string;
 }
 
-const GameTitle: React.FC<GameTitleProps> = ({
+export const GameTitle: React.FC<GameTitleProps> = ({
     name,
     imgUrl,
 }) => {
