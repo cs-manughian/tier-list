@@ -1,0 +1,39 @@
+
+//  TODO: Remove
+.grid {
+    display: inline-grid;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-items: start;
+    grid-template-columns: 100px 100%;
+}
+
+.tier {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1px;
+}
+
+.tier-label {
+    flex: 1;
+    padding: 10px 5px;
+    color: #ffffff;
+    background-color: #111111;
+    border-bottom: 1px solid #026cff;
+}
+.tier-titles {
+    flex: 5;
+    padding: 10px 5px;
+    background-color: #111111;
+    border-bottom: 1px solid #026cff;
+}
+
+.title {
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+    }
+}
