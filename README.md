@@ -1,6 +1,14 @@
 # tier-list
 Game Tier List - Organize game titles into their own preference tiers.
 
+# Running the Project
+
+Assuming npm is installed:
+1. Install packages that the project depends on: `npm install`
+2. Run the app in development mode: `npm start`
+
+The app will automatically open in the browser on port 3000.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
