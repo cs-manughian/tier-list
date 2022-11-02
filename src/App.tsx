@@ -52,18 +52,24 @@ function App() {
       <div className='banner'>
         <h1>Tier List</h1>
       </div>
-      {
-        tiers.map(tier => <TierList 
-          key={tier}
-          label={tier} 
-          titles={tierTitles[tier]} 
-          onClick={addTitleToTier}
-        />)
-      }
-      <TitleSelector 
-        setActiveTitle={setActiveTitle}
-        activeTitle={activeTitle}
-      />
+      <div style={{ display: 'inline-flex' }}>
+
+        {/* Naturally I would style the application so more columns are allowed per tier to view more game titles per tier */}
+        <div className='tiers'>
+        {
+          tiers.map(tier => <TierList 
+            key={tier}
+            label={tier} 
+            titles={tierTitles[tier]} 
+            onClick={addTitleToTier}
+          />)
+        }
+        </div>
+        <TitleSelector 
+          setActiveTitle={setActiveTitle}
+          activeTitle={activeTitle}
+        />
+      </div>
     </div>
   );
 }
