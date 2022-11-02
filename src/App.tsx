@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './App.scss';
-import TierList, { GameTitleProps } from './components/TierList';
+import TierList, { GameTitle } from './components/TierList';
 import TitleSelector from './components/TitleSelector';
 
 function App() {
@@ -10,15 +10,42 @@ function App() {
     'Love it',
     'Like it',
     'Leave it',
-    'Haven\'t played it',
-  ]
+    'Haven\'t played',
+  ];
+  
+  const [activeTitle, setActiveTitle] = useState<GameTitle>({ name: '', imgUrl: '' });
 
-  const [tierTitles, setTierTitles] = useState<Record<string, GameTitleProps[]>>({
+  const [tierTitles, setTierTitles] = useState<Record<string, GameTitle[]>>({
     'Love it': [{
       name: 'Test',
       imgUrl: 'https://jackboxgames.b-cdn.net/wp-content/uploads/2019/06/YDKJ2015tile.jpg'
     }]
   });
+
+  function addTitleToTier (tierLabel: string) {
+    // User selected a title and clicked on the tier list
+    if (activeTitle) {
+
+      // TODO: Disallow adding a game title to different tiers
+      const alreadyAdded = tierTitles[tierLabel]?.find(title => title.name === activeTitle.name);
+      if (alreadyAdded) return;
+
+      // Add game title to tier list
+      const gameTitlesInTier = tierTitles[tierLabel]?.map(title => { return { ...title } }) ?? [];
+      gameTitlesInTier.push({
+        ...activeTitle
+      });
+  
+      setTierTitles({
+        ...tierTitles,
+        [tierLabel]: gameTitlesInTier,
+      })
+
+    }
+  }
+
+  // TODO: Remove a title from the tier when it is selected
+  // function removeTitleFromTier () {}
   
   return (
     <div className="app">
@@ -30,9 +57,13 @@ function App() {
           key={tier}
           label={tier} 
           titles={tierTitles[tier]} 
+          onClick={addTitleToTier}
         />)
       }
-      <TitleSelector />
+      <TitleSelector 
+        setActiveTitle={setActiveTitle}
+        activeTitle={activeTitle}
+      />
     </div>
   );
 }

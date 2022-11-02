@@ -4,6 +4,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: #3f56fe;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .tier-label {
@@ -20,6 +24,8 @@
 }
 .tier-titles {
     flex: 5;
+    display: inline-flex;
+    gap: 5px;
     padding: 10px 5px;
     border-bottom: 1px solid #fff;
 }
@@ -30,5 +36,13 @@
         width: 50px;
         border-radius: 100%;
         object-fit: cover;
+
+        &.active {
+            border: 3px solid #ff202c;
+        }
+        &:hover {
+            zoom: 1.2;
+        }
+    
     }
 }

@@ -1,41 +1,53 @@
 import React from 'react';
 import './TierList.scss';
 
-export type GameTitleProps = {
+export type GameTitle = {
     name: string;
     imgUrl: string;
 }
 
-export const GameTitle: React.FC<GameTitleProps> = ({
+export type GameTitleProps = GameTitle & {
+    isActive?: boolean;
+    onClick?: () => void;
+}
+
+export const GameTitleAvatar: React.FC<GameTitleProps> = ({
     name,
     imgUrl,
+    isActive,
+    onClick,
 }) => {
     return (
-        <div className='title'>
-            <img src={imgUrl} alt={name} />
+        <div className='title' onClick={onClick}>
+            <img className={isActive ? 'active' : ''} src={imgUrl} alt={name} />
         </div>
     )
 }
 
 export type TierListProps = {
     label: string;
-    titles: GameTitleProps[];
+    titles: GameTitle[];
+    onClick: (tierLabel: string) => void;
 }
 
 const TierList: React.FC<TierListProps> = ({
     label,
     titles,
+    onClick,
 }) => {
-    
-
     return (
         <div className='tier'>
             <div className='tier-label'>
                 {label}
             </div>
-            <div className='tier-titles'>
+            <div className='tier-titles' onClick={() => onClick(label)}>
                 {
-                    titles?.map(title => <GameTitle key={title.name} {...title} />)
+                    titles?.map(title => 
+                        <GameTitleAvatar 
+                            key={title.name}
+                            {...title} 
+                        />
+                    )
                 }
             </div>
         </div>
