@@ -19,12 +19,18 @@ function App() {
       imgUrl: 'https://jackboxgames.b-cdn.net/wp-content/uploads/2019/06/YDKJ2015tile.jpg'
     }]
   });
-
   
   return (
     <div className="app">
+      <div className='banner'>
+        <h1>Tier List</h1>
+      </div>
       {
-        tiers.map(tier => <TierList label={tier} titles={tierTitles[tier]} />)
+        tiers.map(tier => <TierList 
+          key={tier}
+          label={tier} 
+          titles={tierTitles[tier]} 
+        />)
       }
       <TitleSelector />
     </div>

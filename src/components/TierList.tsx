@@ -26,15 +26,17 @@ const TierList: React.FC<TierListProps> = ({
     label,
     titles,
 }) => {
+    
+
     return (
         <div className='tier'>
             <div className='tier-label'>
                 {label}
             </div>
             <div className='tier-titles'>
-            {
-                titles?.map(title => <GameTitle {...title} />)
-            }
+                {
+                    titles?.map(title => <GameTitle key={title.name} {...title} />)
+                }
             </div>
         </div>
     )

@@ -16,7 +16,9 @@ const TitleSelector: React.FC<TitleSelectorProps> = ({
     return (
         <div className='title-selector'>
             {
-                PARTY_PACK_IMAGES.map((imgUrl, i) => <GameTitle name={`Game-${i}`} imgUrl={imgUrl} />)
+                PARTY_PACK_IMAGES.map((imgUrl, i) => 
+                    <GameTitle key={`Game-${i}`} name={`Game-${i}`} imgUrl={imgUrl} />
+                )
             }
         </div>
     )
