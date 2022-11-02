@@ -1,6 +1,12 @@
 # tier-list
 Game Tier List - Organize game titles into their own preference tiers.
 
+Click on a game title (in this case, it is just a party pack instead) to select it. Then, click on the empty tier list in the blue area to add the game title to the designated list.
+
+Outstanding features:
+- Remove game title from tier list
+- Prevent adding a game title to multiple tier lists
+
 # Running the Project
 
 Assuming npm is installed:

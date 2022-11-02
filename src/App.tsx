@@ -15,12 +15,7 @@ function App() {
   
   const [activeTitle, setActiveTitle] = useState<GameTitle>({ name: '', imgUrl: '' });
 
-  const [tierTitles, setTierTitles] = useState<Record<string, GameTitle[]>>({
-    'Love it': [{
-      name: 'Test',
-      imgUrl: 'https://jackboxgames.b-cdn.net/wp-content/uploads/2019/06/YDKJ2015tile.jpg'
-    }]
-  });
+  const [tierTitles, setTierTitles] = useState<Record<string, GameTitle[]>>({});
 
   function addTitleToTier (tierLabel: string) {
     // User selected a title and clicked on the tier list
